@@ -1,15 +1,15 @@
-mac/non-ubuntu-linux: `sudo pip install virtualenv`
+1) on mac/non-ubuntu-linux: `sudo pip install virtualenv`
 
-ubuntu: `sudo apt-get install python-virtualenv`
+1) on ubuntu: `sudo apt-get install python-virtualenv`
 
-`cd billtracker-flask`
+2) `cd billtracker-flask`
 
-`. venv/bin/activate`
+3) `. venv/bin/activate`
 
-`pip install Flask`
+4) `pip install Flask`
 
-`export FLASK_APP=hello.py`
+5) `export FLASK_APP=hello.py`
 
-`flask run`
+6) `flask run`
 
-go to localhost:5000, you should see "Hello World"
+7) go to localhost:5000, you should see "Hello World"
