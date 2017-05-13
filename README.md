@@ -13,3 +13,5 @@
 6) `flask run`
 
 7) go to localhost:5000, you should see "Hello World"
+
+8) when you're done, do `deactivate` to leave the python virtualenv
