@@ -4,13 +4,7 @@
 
 2) `cd billtracker-flask`
 
-3) `. venv/bin/activate`
-
-4) `pip install Flask`
-
-5) `export FLASK_APP=app.py`
-
-6) `flask run`
+3) `./bt.sh`
 
 7) go to localhost:5000, you should see "Hello World"
 
