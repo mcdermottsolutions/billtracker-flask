@@ -8,7 +8,7 @@
 
 4) `pip install Flask`
 
-5) `export FLASK_APP=hello.py`
+5) `export FLASK_APP=app.py`
 
 6) `flask run`
 
