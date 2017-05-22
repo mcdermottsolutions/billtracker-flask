@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.8.1" last-position="0,0" last-zoom="1"
+	 default-schema="public" default-owner="postgres">
+<database name="new_database">
+</database>
+
+<schema name="public" protected="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="bill">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="280" y="40"/>
+	<column name="bill_id" not-null="true">
+		<type name="integer" length="20"/>
+	</column>
+	<column name="title">
+		<type name="varchar" length="256"/>
+	</column>
+	<column name="bill_number">
+		<type name="varchar" length="20"/>
+	</column>
+	<constraint name="bill_id_pk" type="pk-constr" table="public.bill">
+		<columns names="bill_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="bill_body">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="20" y="40"/>
+	<column name="id">
+		<type name="integer" length="20"/>
+	</column>
+	<column name="body">
+		<type name="text"/>
+	</column>
+	<column name="revision">
+		<type name="timestamp"/>
+	</column>
+</table>
+
+<table name="bill_info">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="600" y="40"/>
+	<column name="id">
+		<type name="integer"/>
+	</column>
+	<column name="author">
+		<type name="integer"/>
+	</column>
+	<column name="date_created">
+		<type name="integer"/>
+	</column>
+</table>
+
+<table name="comment">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="360" y="160"/>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="user_id">
+		<type name="integer"/>
+	</column>
+	<column name="body">
+		<type name="varchar" length="700"/>
+	</column>
+	<column name="date">
+		<type name="timestamp"/>
+	</column>
+	<column name="revision">
+		<type name="smallint"/>
+	</column>
+	<column name="bill_id">
+		<type name="integer"/>
+	</column>
+	<constraint name="comment_pk" type="pk-constr" table="public.comment">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="user">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="20" y="220"/>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="login">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="email">
+		<type name="varchar" length="200"/>
+	</column>
+	<column name="password">
+		<type name="varchar" length="256"/>
+	</column>
+	<constraint name="user_pk" type="pk-constr" table="public.&quot;user&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="user_info">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="40" y="400"/>
+	<column name="id">
+		<type name="integer"/>
+	</column>
+	<column name="first_name">
+		<type name="varchar" length="20"/>
+	</column>
+	<column name="last_name">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="rating">
+		<type name="smallint"/>
+	</column>
+</table>
+
+<table name="bill_sponsors">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="620" y="140"/>
+	<column name="bill_id">
+		<type name="integer"/>
+	</column>
+	<column name="sponsor">
+		<type name="integer"/>
+	</column>
+</table>
+
+<table name="votes">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="380" y="440"/>
+	<column name="representative">
+		<type name="integer"/>
+	</column>
+	<column name="bill_id">
+		<type name="integer"/>
+	</column>
+</table>
+
+<table name="representatives">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="600" y="260"/>
+	<column name="id" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="instantiated">
+		<type name="timestamp"/>
+	</column>
+	<column name="term_count">
+		<type name="smallint"/>
+	</column>
+	<column name="first_name">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="last_name">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="party">
+		<type name="smallint"/>
+	</column>
+	<constraint name="rep_id" type="pk-constr" table="public.representatives">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="party">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="680" y="400"/>
+	<column name="name">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="id">
+		<type name="smallint"/>
+	</column>
+</table>
+
+<constraint name="bill_id_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.bill" table="public.bill_body">
+	<columns names="id" ref-type="src-columns"/>
+	<columns names="bill_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="bill_id2_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.bill" table="public.bill_info">
+	<columns names="id" ref-type="src-columns"/>
+	<columns names="bill_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="user_id_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;user&quot;" table="public.comment">
+	<columns names="id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="comment_bill_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.bill" table="public.comment">
+	<columns names="bill_id" ref-type="src-columns"/>
+	<columns names="bill_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="user_info_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;user&quot;" table="public.user_info">
+	<columns names="id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="sponsor_bill_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.bill" table="public.bill_sponsors">
+	<columns names="bill_id" ref-type="src-columns"/>
+	<columns names="bill_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="sponsor_rep_id" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.representatives" table="public.bill_sponsors">
+	<columns names="sponsor" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="bill_vote_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.bill" table="public.votes">
+	<columns names="bill_id" ref-type="src-columns"/>
+	<columns names="bill_id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="vote_rep_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.representatives" table="public.votes">
+	<columns names="representative" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="rep_party_fk" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.representatives" table="public.party">
+	<columns names="id" ref-type="src-columns"/>
+	<columns names="party" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_bill_body_bill" type="relfk"
+	 src-table="public.bill_body"
+	 dst-table="public.bill"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_bill_info_bill" type="relfk"
+	 src-table="public.bill_info"
+	 dst-table="public.bill"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_comment_user" type="relfk"
+	 src-table="public.comment"
+	 dst-table="public.&quot;user&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_comment_bill" type="relfk"
+	 src-table="public.comment"
+	 dst-table="public.bill"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_bill_sponsors_bill" type="relfk"
+	 src-table="public.bill_sponsors"
+	 dst-table="public.bill"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_bill_sponsors_representatives" type="relfk"
+	 src-table="public.bill_sponsors"
+	 dst-table="public.representatives"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_user_info_user" type="relfk"
+	 src-table="public.user_info"
+	 dst-table="public.&quot;user&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_party_representatives" type="relfk"
+	 src-table="public.party"
+	 dst-table="public.representatives"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_votes_bill" type="relfk"
+	 src-table="public.votes"
+	 dst-table="public.bill"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_votes_representatives" type="relfk"
+	 src-table="public.votes"
+	 dst-table="public.representatives"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>
