@@ -1,8 +1,11 @@
-run: clean
+run: clean build
 	docker-compose up
 
-background: clean
+background: clean build
 	docker-compose up -d
+
+build:
+	docker build -t mcdermottsolutions/billtracker-flask:latest ./
 
 clean:
 	@docker-compose kill || echo 'nothing to kill'
