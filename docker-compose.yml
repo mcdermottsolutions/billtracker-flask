@@ -1,5 +1,5 @@
 server:
-  build: .
+  image: mcdermottsolutions/billtracker-flask:latest
   environment:
     - FLASK_APP=app.py
   command: flask run --host=0.0.0.0
