@@ -8,7 +8,7 @@
 
    - https://docs.docker.com/engine/installation/linux/ubuntu/
 2. run docker
-3. cd billtracker-flask
+3. `cd billtracker-flask`
 4. run `make`
 5. in your browser, go to localhost:5000
 
