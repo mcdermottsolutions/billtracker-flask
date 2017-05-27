@@ -1,11 +1,10 @@
-1) on mac/non-ubuntu-linux: `sudo pip install virtualenv`
+# getting this billtracker-flask repo up & running
 
-   on ubuntu: `sudo apt-get install python-virtualenv`
+1) install docker
+2) run docker
+3) cd billtracker-flask
+4) run `make`
+5) in your browser, go to localhost:5000
 
-2) `cd billtracker-flask`
-
-3) `./bt.sh`
-
-7) go to localhost:5000, you should see "Hello World"
-
-8) when you're done, do `deactivate` to leave the python virtualenv
+That should be it, but let me know if it gives you any problems!  I can
+walk you through any pain points.
