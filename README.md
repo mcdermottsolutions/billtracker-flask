@@ -7,6 +7,11 @@
    - https://docs.docker.com/docker-for-windows/install/
 
    - https://docs.docker.com/engine/installation/linux/ubuntu/
+
+    _Note about linux installs:_
+
+      - `docker-compose` _is not installed by default. Install it [here](https://github.com/docker/compose/releases)._ Also you must log out and log back in to use docker without sudo permissions (see [here](https://docs.docker.com/engine/installation/linux/linux-postinstall/) for details).
+
 2. run docker
 3. `cd billtracker-flask`
 4. run `make`
