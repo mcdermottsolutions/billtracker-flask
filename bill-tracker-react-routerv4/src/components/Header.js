@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import Home from './Home';
-import {Link} from 'react-router-dom';
+import {Link, Match} from 'react-router-dom';
 
 
 class Header extends Component {
@@ -12,9 +12,7 @@ class Header extends Component {
         <nav>
           <ul>
             <li><Link to='/'>Home</Link></li>
-            {this.props.children}
             <li><Link to='/about'>About</Link></li>
-            {this.props.children}
             <li><Link to='/contact'>Contact Us</Link></li>
             <li><Link to='/demo'>Demo</Link></li>
           </ul>
