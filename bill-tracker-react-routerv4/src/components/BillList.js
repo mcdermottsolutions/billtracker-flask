@@ -9,7 +9,7 @@ class BillList extends Component {
         <h2>This is an UL that will hold bill search results</h2>
         <ul>
           <BillItem/>
-          <BillItem/>
+        <BillItem/>
           <BillItem/>
         </ul>
       </div>

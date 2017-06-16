@@ -2,16 +2,14 @@ import React, { Component } from 'react';
 
 
 
-class Demo extends Component {
+class Blog extends Component {
   render() {
     return (
       <div>
-        I am the demo page.
-
-        
+        I am blog content.
       </div>
     );
   }
 }
 
-export default Demo;
+export default Blog;
